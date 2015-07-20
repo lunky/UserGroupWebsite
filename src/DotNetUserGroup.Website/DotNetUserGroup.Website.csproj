@@ -8,7 +8,7 @@
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{4C834210-2E1D-42CA-A78D-18A90AD2017F}</ProjectGuid>
-    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DotNetUserGroup.Website</RootNamespace>
@@ -23,6 +23,12 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -118,7 +124,9 @@
     <Reference Include="System.Web.Optimization">
       <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.0.0-beta3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web" />
+    <Reference Include="System.Web">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System.Web.Abstractions" />
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -157,8 +165,10 @@
     <Compile Include="App_Start\NinjectDependencyResolver.cs" />
     <Compile Include="App_Start\NinjectDependencyScope.cs" />
     <Compile Include="Controllers\PageNewsController.cs" />
+    <Compile Include="Models\EventBriteRepositoryV3.cs" />
     <Compile Include="Models\IdeaScaleRepository.cs" />
     <Compile Include="Models\IRepository.cs" />
+    <Compile Include="Models\ISlackInc.cs" />
     <Compile Include="Models\NewsArticleRepository.cs" />
     <Compile Include="Models\EventBriteRepository.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -166,6 +176,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Models\LogEvent.cs" />
+    <Compile Include="Models\SlackInCSharp.cs" />
     <Compile Include="Models\UserGroupEvent.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Models\FutureTopicInfo.cs" />
@@ -209,6 +220,7 @@
     <Content Include="Images\logo_2013.png" />
     <Content Include="Images\manning.jpg" />
     <Content Include="Images\Msdn-Logo.png" />
+    <Content Include="Images\MSFT.png" />
     <Content Include="Images\obs-logo.png" />
     <Content Include="Images\oreilly.gif" />
     <Content Include="Images\pluralsight-logo-for-sponsorships-small.png" />
@@ -273,6 +285,9 @@
     <Content Include="Content\home\news.less" />
     <Content Include="Content\home\next_event.less" />
     <Content Include="Content\home\past_events.less" />
+    <Content Include="Content\styles.css.map">
+      <DependentUpon>styles.css</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
@@ -375,6 +390,7 @@
     <Content Include="Scripts\vm\Views\Home\NextEventViewModel.coffee" />
     <Content Include="Scripts\vm\Views\Home\FutureTopicsViewModel.coffee" />
     <Content Include="Views\Shared\_Layout.mobile.cshtml" />
+    <Content Include="Views\Home\slackin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
